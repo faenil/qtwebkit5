@@ -180,6 +180,9 @@ qmake -qt=5 CONFIG+=release CONFIG-=debug \
        WEBKIT_CONFIG-=inspector \
        WEBKIT_CONFIG-=fullscreen_api \
        WEBKIT_CONFIG-=netscape_plugin_api \
+%if %{with X11}
+       WEBKIT_CONFIG+=netscape_plugin_api \
+%endif
        WEBKIT_CONFIG-=build_qttestsupport
 
 make %{?jobs:-j%jobs}
